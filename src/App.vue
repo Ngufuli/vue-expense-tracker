@@ -3,6 +3,7 @@
   import Balance from './components/Balance.vue';
   import IncomeExpense from './components/IncomeExpense.vue';
   import TransactionList from './components/TransactionList.vue';
+  import AddTransactionVue from './components/AddTransaction.vue';
 </script>
 
 <template>
@@ -11,5 +12,6 @@
     <Balance />
     <IncomeExpense />
     <TransactionList />
+    <AddTransactionVue />
   </div>
 </template>
