@@ -19,7 +19,7 @@
   <div class="container">
     <Balance />
     <IncomeExpense />
-    <TransactionList />
+    <TransactionList :transactions="transactions" />
     <AddTransactionVue />
   </div>
 </template>
