@@ -1,3 +1,18 @@
+<script setup>
+    import { defineProps } from 'vue';
+
+    const props = defineProps({
+        income: {
+            type: Number,
+            required: true
+        },
+        expenses: {
+            type: Number,
+            required: true,
+        },
+    })
+</script>
+
 <template>
     <div class="inc-exp-container">
         <div>
