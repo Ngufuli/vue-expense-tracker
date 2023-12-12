@@ -1,12 +1,27 @@
 <script setup>
 import { ref } from 'vue';
-
+import { useToast } from 'vue-toastification';
 const text = ref('');
 const amount = ref('');
 
-    const onSubmit = () => {
-        console.log(text.value, amount.value)
+//Get toast interface
+const toast = useToast();
+
+const onSubmit = () => {
+    if(!text.value | !amount.value){
+        //Display a toast error message if either field is empty
+        toast.error('Both fields must be filled.');
+        return;
     }
+
+    //Proceed with form submission login here...
+    console.log(('Form submitted:', text.value, amount.value));
+
+    //clear form fields
+    text.value = '';
+    amount.value = '';
+}
+
 </script>
 
 <template>
