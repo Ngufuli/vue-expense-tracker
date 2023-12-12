@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import { useToast } from 'vue-toastification';
+
 const text = ref('');
 const amount = ref('');
+
+const emit = defineEmits(['transactionSubmitted']);
 
 //Get toast interface
 const toast = useToast();
@@ -15,7 +18,12 @@ const onSubmit = () => {
     }
 
     //Proceed with form submission login here...
-    console.log(('Form submitted:', text.value, amount.value));
+    // console.log(('Form submitted:', text.value, amount.value));
+
+    const transactionData = {
+        text: text.value,
+        amount: parseFloat(amount.value),
+    }
 
     //clear form fields
     text.value = '';
