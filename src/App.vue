@@ -35,6 +35,10 @@
         .reduce((acc, transaction) => acc + transaction.amount, 0)
         .toFixed(2)
     })
+
+    const handleTransactionSubmitted = (transactionData) => {
+      console.log(transactionData);
+    }
 </script>
 
 <template>
@@ -43,6 +47,6 @@
     <Balance :total="total" />
     <IncomeExpense :income="+income" :expenses="+expenses" />
     <TransactionList :transactions="transactions" />
-    <AddTransactionVue />
+    <AddTransactionVue @transactionSubmitted="handleTransactionSubmitted"/>
   </div>
 </template>

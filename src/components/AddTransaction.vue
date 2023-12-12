@@ -20,11 +20,13 @@ const onSubmit = () => {
     //Proceed with form submission login here...
     // console.log(('Form submitted:', text.value, amount.value));
 
+    //Emit a custom event with the transaction data
     const transactionData = {
         text: text.value,
         amount: parseFloat(amount.value),
     }
 
+    emit('transactionSubmitted', transactionData);
     //clear form fields
     text.value = '';
     amount.value = '';
