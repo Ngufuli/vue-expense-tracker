@@ -37,7 +37,12 @@
     })
 
     const handleTransactionSubmitted = (transactionData) => {
-      console.log(transactionData);
+      // console.log(transactionData);
+      transactions.value.push({
+        id: generateUniqueId(),
+        text: transactionData.text,
+        amount:transactionData.amount
+      });
     }
 </script>
 
