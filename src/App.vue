@@ -7,6 +7,8 @@
   import {computed, ref} from 'vue';
   import { useToast } from 'vue-toastification';
 
+  const toast = useToast();
+
   const transactions = ref([
         {id: 1, text: 'Flower', amount: -19.00},
         {id: 2, text: 'Salary', amount: 299.97},
@@ -44,6 +46,8 @@
         text: transactionData.text,
         amount:transactionData.amount
       });
+
+      toast.success('Transaction added')
     }
 
     const generateUniqueId = () => {
