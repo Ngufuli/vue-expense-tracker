@@ -5,6 +5,7 @@
   import TransactionList from './components/TransactionList.vue';
   import AddTransactionVue from './components/AddTransaction.vue';
   import {computed, ref} from 'vue';
+  import { useToast } from 'vue-toastification';
 
   const transactions = ref([
         {id: 1, text: 'Flower', amount: -19.00},
@@ -43,6 +44,10 @@
         text: transactionData.text,
         amount:transactionData.amount
       });
+    }
+
+    const generateUniqueId = () => {
+      return Math.floor(Math.random() * 1000000)
     }
 </script>
 
