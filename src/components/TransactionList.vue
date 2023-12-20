@@ -1,6 +1,12 @@
 <script setup>
    import { defineProps } from 'vue';
 
+   const emit = defineEmits(['transactionDeleted']);
+
+   const deleteTransaction = (id) => {
+    emit('transactionDeleted', id);
+   }
+
    const props = defineProps({
     transactions: {
         type: Array,
@@ -16,10 +22,12 @@
             {{ transaction.text }} <span>${{ transaction.amount }}</span><button class="delete-btn">x</button>
         </li>
         <li class="minus">
-            Cash <span>-$500</span><button class="delete-btn">x</button>
+            Cash <span>-$500</span><button class="delete-btn" @click="deleteTransaction(transaction.id)">x</button>
         </li>
         <li class="plus">
-            Salary <span>+1000</span><button class="delete-btn">x</button>
+            Salary <span>+1000</span><button class="delete-btn" @click="deleteTransaction(transaction.id)">x</button>
         </li>
     </ul>
+
+    
 </template>
