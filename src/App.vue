@@ -3,7 +3,7 @@
   import Balance from './components/Balance.vue';
   import IncomeExpense from './components/IncomeExpense.vue';
   import TransactionList from './components/TransactionList.vue';
-  import AddTransactionVue from './components/AddTransaction.vue';
+  import AddTransaction from './components/AddTransaction.vue';
   import {computed, ref} from 'vue';
   import { useToast } from 'vue-toastification';
 
@@ -39,6 +39,10 @@
         .toFixed(2)
     })
 
+    const generateUniqueId = () => {
+      return Math.floor(Math.random() * 1000000)
+    }
+
     const handleTransactionSubmitted = (transactionData) => {
       // console.log(transactionData);
       transactions.value.push({
@@ -50,9 +54,7 @@
       toast.success('Transaction added')
     }
 
-    const generateUniqueId = () => {
-      return Math.floor(Math.random() * 1000000)
-    }
+   
 
     const handleTransactionDeleted = (id) => {
       transactions.value = transactions.value.filter(
@@ -68,6 +70,6 @@
     <Balance :total="total" />
     <IncomeExpense :income="+income" :expenses="+expenses" />
     <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted"/>
-    <AddTransactionVue @transactionSubmitted="handleTransactionSubmitted"/>
+    <AddTransaction @transactionSubmitted="handleTransactionSubmitted"/>
   </div>
 </template>
