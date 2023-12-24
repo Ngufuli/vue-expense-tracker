@@ -54,7 +54,7 @@
       return Math.floor(Math.random() * 1000000)
     }
 
-    const handlerTransactionDeleted = (id) => {
+    const handleTransactionDeleted = (id) => {
       transactions.value = transactions.value.filter(
         (transaction) => transaction.id != id
       );
